@@ -12,5 +12,9 @@
       settings.flags.process_memory_as_value = true;
     };
     nushell.enable = true;
+    gh = {
+      enable = true;
+      settings.editor = "nvim";
+    };
   };
 }

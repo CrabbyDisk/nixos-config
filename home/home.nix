@@ -41,7 +41,6 @@
         font_family = "JetBrainsMono Nerd Font Mono";
       };
     };
-    gh.enable = true;
 
     direnv = {
       enable = true;
