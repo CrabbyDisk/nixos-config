@@ -27,6 +27,7 @@
     username = "crabbydisk";
     homeDirectory = "/home/crabbydisk";
   };
+  xdg.userDirs.enable = true;
 
   programs = {
     home-manager.enable = true;
@@ -55,6 +56,7 @@
   };
 
   home.packages = with pkgs; [
+    vesktop
     qpwgraph
   ];
 

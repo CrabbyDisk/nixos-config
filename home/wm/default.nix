@@ -5,6 +5,10 @@
   input,
   ...
 }: {
+  programs.eww = {
+    enable = true;
+    configDir = ./eww;
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;

@@ -1,0 +1,27 @@
+(defwidget bar []
+ (box :orientation "v"
+ :valign "end"
+        (time) (systray)))
+(defwidget time []
+  (box :orientation "v"
+       :class "time"
+    hour min sec))
+
+
+
+
+(defpoll hour :interval "1s" "date +%H")
+(defpoll min  :interval "1s" "date +%M")
+(defpoll sec  :interval "1s" "date +%S")
+
+(defpoll day_word :interval "10m" "date +%a | tr [:upper:] [:lower:]")
+(defpoll day      :interval "10m" "date +%d")
+(defpoll month    :interval "1h"  "date +%m")
+(defpoll year     :interval "1h"  "date +%y")
+
+(defwindow bar
+  :stacking "fg"
+  :geometry (geometry :width "40px" :height "100%" :anchor "center left")
+  :exclusive true
+  :monitor 0
+  (bar))
