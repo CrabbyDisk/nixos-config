@@ -5,6 +5,10 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # Stylix
+    stylix.url = "github:danth/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+
     #nvf
     nvf.url = "github:crabbydisk/nvf-config";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +29,7 @@
     self,
     nixpkgs,
     home-manager,
+    stylix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -49,7 +54,7 @@
     homeConfigurations."crabbydisk" = home-manager.lib.homeManagerConfiguration {
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
-      modules = [./home/home.nix];
+      modules = [stylix.homeManagerModules.stylix ./home/home.nix];
 
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix

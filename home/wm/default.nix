@@ -9,6 +9,7 @@
     enable = true;
     configDir = ./eww;
   };
+  services.hyprpaper.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;
@@ -137,7 +138,6 @@
         ];
 
         env = [
-          "NIXOS_OZONE_WL,1"
           "_JAVA_AWT_WM_NONREPARENTING,1"
           "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
           "QT_QPA_PLATFORM,wayland"

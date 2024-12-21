@@ -27,6 +27,23 @@
     username = "crabbydisk";
     homeDirectory = "/home/crabbydisk";
   };
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-chinese-addons
+      kdePackages.fcitx5-qt
+    ];
+  };
+
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    image = ./wallpaper.png;
+  };
+  home.sessionVariables = {
+  };
+  programs.bash.enable = true;
+
   xdg.userDirs.enable = true;
 
   programs = {
@@ -34,11 +51,9 @@
     git.enable = true;
     kitty = {
       enable = true;
-      themeFile = "Catppuccin-Mocha";
       settings = {
         confirm_os_window_close = 0;
         shell = "${pkgs.nushell}/bin/nu";
-        font_family = "JetBrainsMono Nerd Font Mono";
       };
     };
 
@@ -48,15 +63,10 @@
     };
   };
 
-  gtk = {
-    enable = true;
-    theme.package = pkgs.catppuccin-gtk;
-    theme.name = "Catppuccin Mocha";
-  };
-
   home.packages = with pkgs; [
     vesktop
     qpwgraph
+    nom
   ];
 
   # Nicely reload system units when changing configs

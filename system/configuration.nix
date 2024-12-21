@@ -1,5 +1,3 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 {
   inputs,
   outputs,
@@ -79,15 +77,6 @@
   services.udisks2.enable = true;
   services.gvfs.enable = true;
 
-  i18n.inputMethod = {
-    type = "fcitx5";
-    enable = true;
-    fcitx5.addons = with pkgs; [
-      fcitx5-chinese-addons
-      kdePackages.fcitx5-qt
-    ];
-  };
-
   networking.hostName = "good-pc";
   networking.networkmanager.enable = true;
 
@@ -159,6 +148,8 @@
     zoom-us
     ghostwriter
   ];
+
+  # TODO:
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {

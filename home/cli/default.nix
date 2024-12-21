@@ -19,9 +19,11 @@
           profile-cond = "(audio and not video)";
           audio-display = "no";
           audio-samplerate = 48000;
+          gapless-audio = "weak";
         };
       };
     };
+    yt-dlp.enable = true;
     gh = {
       enable = true;
       settings = {
