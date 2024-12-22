@@ -22,6 +22,11 @@
     ./cli
   ];
 
+  nixpkgs.config = {
+    allowUnfree = true;
+    cudaSupport = true;
+  };
+
   # TODO: Set your username
   home = {
     username = "crabbydisk";
@@ -39,6 +44,12 @@
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     image = ./wallpaper.png;
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font";
+      };
+    };
   };
   home.sessionVariables = {
   };
@@ -64,7 +75,10 @@
   };
 
   home.packages = with pkgs; [
-    vesktop
+    (discord.override {
+      withOpenASAR = true;
+      withVencord = true;
+    })
     qpwgraph
     nom
   ];
