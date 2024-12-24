@@ -77,8 +77,15 @@
   services.udisks2.enable = true;
   services.gvfs.enable = true;
 
-  networking.hostName = "good-pc";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "good-pc";
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
+    networkmanager.enable = true;
+    networkmanager.dns = "none";
+  };
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -113,10 +120,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    wofi
-    eww
-    mako
-
     kdePackages.ark
 
     slurp
@@ -128,10 +131,6 @@
     fastfetch
     wl-clipboard
     kdePackages.kdenlive
-    (prismlauncher.override {
-      jdks = [graalvm-ce];
-      additionalLibs = [wayland libxkbcommon];
-    })
     inputs.nvf.packages.${pkgs.system}.default
 
     libreoffice-fresh
@@ -146,7 +145,6 @@
     gparted
 
     zoom-us
-    ghostwriter
   ];
 
   # TODO:

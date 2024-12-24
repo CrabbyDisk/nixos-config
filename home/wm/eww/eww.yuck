@@ -1,6 +1,6 @@
 (defwidget bar []
  (box :orientation "v"
- :valign "end"
+ :valign "center"
         (time) (systray :orientation "v")))
 (defwidget time []
   (box :orientation "v"

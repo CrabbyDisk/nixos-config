@@ -44,6 +44,10 @@
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     image = ./wallpaper.png;
+    cursor = {
+      package = pkgs.catppuccin-cursors;
+      name = "Catppuccin-Mocha-Sapphire";
+    };
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
@@ -75,12 +79,18 @@
   };
 
   home.packages = with pkgs; [
-    (discord.override {
+    (prismlauncher.override {
+      jdks = [graalvm-ce];
+      additionalLibs = [wayland libxkbcommon];
+    })
+
+    (discord-canary.override {
       withOpenASAR = true;
       withVencord = true;
     })
     qpwgraph
     nom
+    obsidian
   ];
 
   # Nicely reload system units when changing configs
