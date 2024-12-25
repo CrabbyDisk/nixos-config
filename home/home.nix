@@ -57,6 +57,7 @@
   };
   home.sessionVariables = {
     "_ZO_RESOLVE_SYMLINKS" = 1;
+    "EDITOR" = "nvim";
   };
   programs.bash.enable = true;
 
