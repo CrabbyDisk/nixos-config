@@ -12,7 +12,7 @@
     enable = true;
     configDir = ./eww;
   };
-  programs.wofi.enable = true;
+  programs.fuzzel.enable = true;
 
   services.mako = {
     enable = true;

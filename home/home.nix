@@ -46,7 +46,7 @@
     image = ./wallpaper.png;
     cursor = {
       package = pkgs.catppuccin-cursors;
-      name = "Catppuccin-Mocha-Sapphire";
+      name = "catppuccin-Mocha-Dark-cursors";
     };
     fonts = {
       monospace = {
@@ -56,6 +56,7 @@
     };
   };
   home.sessionVariables = {
+    "_ZO_RESOLVE_SYMLINKS" = 1;
   };
   programs.bash.enable = true;
 
@@ -91,6 +92,8 @@
     qpwgraph
     nom
     obsidian
+    catppuccin-cursors
+    pcmanfm
   ];
 
   # Nicely reload system units when changing configs

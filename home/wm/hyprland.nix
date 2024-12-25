@@ -122,7 +122,7 @@
           "$mod, j, movefocus, d"
 
           # Applications
-          "$mod, r, exec, wofi --show drun"
+          "$mod, r, exec, fuzzel"
 
           # Screencapture
           ",Print, exec, ${pkgs.grim}/bin/grim -g \"$(slurp)\" - | ${pkgs.swappy}/bin/swappy -f -"
