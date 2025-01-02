@@ -38,7 +38,6 @@
       ];
       trusted-public-keys = [
         "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
-
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
@@ -67,12 +66,12 @@
 
   time.timeZone = "America/Toronto";
 
+  services.displayManager.sddm.enable = true;
+
   services.xserver.enable = true;
   programs.hyprland = {
     enable = true;
-    withUWSM = true;
   };
-  programs.uwsm.enable = true;
 
   services.udisks2.enable = true;
   services.gvfs.enable = true;
@@ -117,6 +116,7 @@
   programs.nh = {
     enable = true;
     clean.enable = true;
+    clean.extraArgs = "--keep 15";
   };
 
   environment.systemPackages = with pkgs; [
@@ -126,18 +126,14 @@
     grim
     swappy
 
-    inputs.zen-browser.packages."${system}".specific
-
     fastfetch
     wl-clipboard
-    kdePackages.kdenlive
-    inputs.nvf.packages.${pkgs.system}.default
+    # kdePackages.kdenlive
 
     libreoffice-fresh
 
     inkscape
-    gimp
-    blender
+    #blender
 
     universal-android-debloater
     android-tools

@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "CrabbyDisk's personal NixOS config!";
 
   inputs = {
     # Nixpkgs
@@ -45,6 +45,9 @@
     # Other options beside 'alejandra' include 'nixpkgs-fmt'
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    overlays = import ./overlays {inherit inputs;};
+
     # Your custom packages and modifications, exported as overlays
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
@@ -52,23 +55,16 @@
     # These are usually stuff you would upstream into home-manager
 
     homeConfigurations."crabbydisk" = home-manager.lib.homeManagerConfiguration {
-      # Specify your home configuration modules here, for example,
-      # the path to your home.nix.
+      extraSpecialArgs = {inherit inputs outputs;};
       modules = [stylix.homeManagerModules.stylix ./home/home.nix];
-
-      # Optionally use extraSpecialArgs
-      # to pass through arguments to home.nix
 
       pkgs = import nixpkgs {system = "x86_64-linux";};
     };
 
-    # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       good-pc = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          # > Our main nixos configuration file <
           ./system/configuration.nix
         ];
       };

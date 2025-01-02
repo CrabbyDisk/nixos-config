@@ -87,14 +87,15 @@
     })
 
     (discord-canary.override {
-      withOpenASAR = true;
       withVencord = true;
     })
+    wakatime-cli
     qpwgraph
     nom
     obsidian
     catppuccin-cursors
-    pcmanfm
+    inputs.zen-browser.packages."${system}".specific
+    inputs.nvf.packages.${pkgs.system}.default
   ];
 
   # Nicely reload system units when changing configs
