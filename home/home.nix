@@ -32,6 +32,7 @@
     username = "crabbydisk";
     homeDirectory = "/home/crabbydisk";
   };
+  programs.nix-index.enable = true;
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
@@ -96,6 +97,7 @@
     catppuccin-cursors
     inputs.zen-browser.packages."${system}".specific
     inputs.nvf.packages.${pkgs.system}.default
+    nvidia_oc
   ];
 
   # Nicely reload system units when changing configs

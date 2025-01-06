@@ -30,6 +30,7 @@
 
       input = {
         kb_layout = "us";
+        kb_options = "caps:super";
         follow_mouse = true;
         touchpad = {
           natural_scroll = true;

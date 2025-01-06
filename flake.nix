@@ -10,7 +10,7 @@
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     #nvf
-    nvf.url = "github:crabbydisk/nvf-config";
+    nvf.url = "github:notashelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
 
     # Home Manager
@@ -18,11 +18,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     #Zen browser
-
     zen-browser.url = "github:MarceColl/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Plasma Manager
   };
 
   outputs = {
@@ -30,6 +27,7 @@
     nixpkgs,
     home-manager,
     stylix,
+    nvf,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -45,7 +43,26 @@
     # Other options beside 'alejandra' include 'nixpkgs-fmt'
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    /*
+       packages = forAllSystems (
+      system: {
+        ${system}.default =
+          (nvf.lib.neovimConfiguration {
+            pkgs = nixpkgs.legacyPackages.${system};
+            modules = [./nvf];
+          })
+          .neovim;
+      }
+    );
+    */
+
+    packages."x86_64-linux".nvf =
+      (nvf.lib.neovimConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        modules = [./nvf];
+      })
+      .neovim;
+
     overlays = import ./overlays {inherit inputs;};
 
     # Your custom packages and modifications, exported as overlays
