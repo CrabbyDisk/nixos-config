@@ -96,7 +96,7 @@
     obsidian
     catppuccin-cursors
     inputs.zen-browser.packages."${system}".specific
-    inputs.nvf.packages.${pkgs.system}.default
+    outputs.packages."x86_64-linux".nvf
     nvidia_oc
   ];
 
