@@ -82,7 +82,6 @@
       extraConfig = ''
           local wezterm = require 'wezterm'
         local config = {}
-        config.default_prog = { 'nu' }
         return config
       '';
     };
