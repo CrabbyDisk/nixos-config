@@ -97,6 +97,26 @@
       jdks = [graalvm-ce];
       additionalLibs = [wayland libxkbcommon];
     })
+    zoom-us
+    kdePackages.ark
+
+    slurp
+    grim
+    swappy
+
+    fastfetch
+    wl-clipboard
+    # kdePackages.kdenlive
+
+    libreoffice-fresh
+
+    inkscape
+    #blender
+
+    universal-android-debloater
+    android-tools
+    wineWowPackages.staging
+    gparted
 
     (discord-canary.override {
       withVencord = true;
@@ -106,7 +126,7 @@
     nom
     obsidian
     catppuccin-cursors
-    inputs.zen-browser.packages."${system}".specific
+    inputs.zen-browser.packages."${system}".default
     outputs.packages."x86_64-linux".nvf
     nvidia_oc
   ];
@@ -115,5 +135,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
 }
