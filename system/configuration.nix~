@@ -121,32 +121,6 @@
     clean.extraArgs = "--keep 15";
   };
 
-  environment.systemPackages = with pkgs; [
-    kdePackages.ark
-
-    slurp
-    grim
-    swappy
-
-    fastfetch
-    wl-clipboard
-    # kdePackages.kdenlive
-
-    libreoffice-fresh
-
-    inkscape
-    #blender
-
-    universal-android-debloater
-    android-tools
-    wineWowPackages.staging
-    gparted
-
-    zoom-us
-  ];
-
-  # TODO:
-
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
     crabbydisk = {

@@ -1,6 +1,5 @@
 {
   inputs,
-  outputs,
   lib,
   config,
   pkgs,
@@ -50,8 +49,7 @@
     loader.systemd-boot.enable = true;
     kernelPackages = pkgs.linuxPackages_zen;
   };
-  # Nvidia
-  services.xserver.videoDrivers = ["nvidia"];
+
   hardware.nvidia = {
     powerManagement.enable = false;
     powerManagement.finegrained = false;
@@ -63,21 +61,42 @@
   hardware.graphics.enable = true;
 
   time.timeZone = "America/Toronto";
+  services = {
+    # Nvidia
+    xserver.videoDrivers = ["nvidia"];
 
-  services.displayManager = {
-    autoLogin = {
+    avahi = {
       enable = true;
-      user = "crabbydisk";
+      nssmdns4 = true;
+      openFirewall = true;
     };
-    sddm.enable = true;
-  };
-  services.xserver.enable = true;
-  programs.hyprland = {
-    enable = true;
-  };
 
-  services.udisks2.enable = true;
-  services.gvfs.enable = true;
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "crabbydisk";
+      };
+      sddm.enable = true;
+    };
+    xserver.enable = true;
+
+    udisks2.enable = true;
+    ratbagd.enable = true;
+
+    printing = {
+      enable = true;
+      drivers = [pkgs.hplip];
+    };
+
+    pipewire = {
+      enable = true;
+      wireplumber.enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
+  };
 
   networking = {
     hostName = "good-pc";
@@ -90,14 +109,6 @@
   };
 
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    wireplumber.enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -105,20 +116,27 @@
     noto-fonts-cjk-sans
     noto-fonts-extra
   ];
+  programs = {
+    hyprland = {
+      enable = true;
+    };
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };
+    river.enable = true;
 
-  programs.localsend.enable = true;
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    };
 
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep 15";
+    localsend.enable = true;
+
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep 15";
+    };
   };
 
   # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.

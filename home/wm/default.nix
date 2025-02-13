@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./hyprland.nix
+    ./river.nix
   ];
   programs.eww = {
     enable = true;

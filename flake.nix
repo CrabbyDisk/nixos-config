@@ -5,13 +5,17 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    flake-utils.url = "github:numtide/flake-utils";
+
     # Stylix
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
+    stylix.inputs.flake-utils.follows = "flake-utils";
     #nvf
     nvf.url = "github:notashelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
+    nvf.inputs.flake-utils.follows = "flake-utils";
 
     # Home Manager
     home-manager.url = "github:nix-community/home-manager";

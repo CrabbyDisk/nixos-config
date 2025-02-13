@@ -83,6 +83,10 @@
           local wezterm = require 'wezterm'
         local config = {}
         config.default_prog = { 'nu' }
+        config.keys = {
+         { key = 'LeftArrow', mods = 'CTRL|SHIFT', action = wezterm.action.ActivateTabRelative(-1) },
+         { key = 'RightArrow', mods = 'CTRL|SHIFT', action = wezterm.action.ActivateTabRelative(1) },
+        }
         return config
       '';
     };
@@ -98,6 +102,26 @@
       additionalLibs = [wayland libxkbcommon];
     })
     zoom-us
+    kdePackages.ark
+
+    slurp
+    grim
+    swappy
+
+    fastfetch
+    wl-clipboard
+    # kdePackages.kdenlive
+
+    libreoffice-fresh
+
+    usbutils
+    inkscape
+    #blender
+
+    universal-android-debloater
+    android-tools
+    wineWowPackages.staging
+    gparted
 
     (discord-canary.override {
       withVencord = true;

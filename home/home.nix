@@ -24,7 +24,7 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    cudaSupport = true;
+    cudaSupport = false;
   };
 
   # TODO: Set your username
@@ -32,7 +32,43 @@
     username = "crabbydisk";
     homeDirectory = "/home/crabbydisk";
   };
-  programs.nix-index.enable = true;
+
+  programs = {
+    nix-index.enable = true;
+    bash.enable = true;
+
+    home-manager.enable = true;
+    git.enable = true;
+    /*
+       kitty = {
+      enable = true;
+      settings = {
+        confirm_os_window_close = 0;
+        shell = "${pkgs.nushell}/bin/nu";
+      };
+    };
+    */
+
+    wezterm = {
+      enable = true;
+      extraConfig = ''
+          local wezterm = require 'wezterm'
+        local config = {}
+        config.default_prog = { 'nu' }
+        config.keys = {
+         { key = 'LeftArrow', mods = 'CTRL|SHIFT', action = wezterm.action.ActivateTabRelative(-1) },
+         { key = 'RightArrow', mods = 'CTRL|SHIFT', action = wezterm.action.ActivateTabRelative(1) },
+        }
+        return config
+      '';
+    };
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+  };
+
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [
@@ -56,42 +92,13 @@
       };
     };
   };
+
   home.sessionVariables = {
     "_ZO_RESOLVE_SYMLINKS" = 1;
     "EDITOR" = "nvim";
   };
-  programs.bash.enable = true;
 
   xdg.userDirs.enable = true;
-
-  programs = {
-    home-manager.enable = true;
-    git.enable = true;
-    /*
-       kitty = {
-      enable = true;
-      settings = {
-        confirm_os_window_close = 0;
-        shell = "${pkgs.nushell}/bin/nu";
-      };
-    };
-    */
-
-    wezterm = {
-      enable = true;
-      extraConfig = ''
-          local wezterm = require 'wezterm'
-        local config = {}
-        config.default_prog = { 'nu' }
-        return config
-      '';
-    };
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-  };
   home.packages = with pkgs; [
     (prismlauncher.override {
       jdks = [graalvm-ce];
@@ -110,8 +117,11 @@
 
     libreoffice-fresh
 
+    usbutils
     inkscape
     #blender
+    piper
+    gimp
 
     universal-android-debloater
     android-tools
