@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    ./hyprland.nix
+    # ./hyprland.nix
     ./river.nix
   ];
   programs.eww = {
@@ -18,5 +18,5 @@
   services.mako = {
     enable = true;
   };
-  services.hyprpaper.enable = true;
+  # services.hyprpaper.enable = true;
 }

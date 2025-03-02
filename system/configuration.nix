@@ -80,6 +80,21 @@
     };
     xserver.enable = true;
 
+    keyd = {
+      enable = true;
+      keyboards.default = {
+        settings = {
+          global = {
+            default_layout = "colemak";
+          };
+          main = {
+            capslock = "overload(control, esc)";
+          };
+        };
+        extraConfig = "include layouts/colemak";
+      };
+    };
+
     udisks2.enable = true;
     ratbagd.enable = true;
 
@@ -96,6 +111,11 @@
       pulse.enable = true;
       jack.enable = true;
     };
+  };
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
   };
 
   networking = {

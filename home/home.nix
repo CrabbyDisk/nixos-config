@@ -38,7 +38,10 @@
     bash.enable = true;
 
     home-manager.enable = true;
-    git.enable = true;
+    git = {
+      enable = true;
+      signing.format = "openpgp";
+    };
     /*
        kitty = {
       enable = true;
@@ -49,7 +52,8 @@
     };
     */
 
-    wezterm = {
+    /*
+       wezterm = {
       enable = true;
       extraConfig = ''
           local wezterm = require 'wezterm'
@@ -61,6 +65,17 @@
         }
         return config
       '';
+    };
+    */
+
+    foot = {
+      enable = true;
+      server.enable = true;
+      settings = {
+        main = {
+          shell = "${pkgs.nushell}/bin/nu";
+        };
+      };
     };
 
     direnv = {
@@ -82,8 +97,9 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     image = ./wallpaper.png;
     cursor = {
-      package = pkgs.catppuccin-cursors;
-      name = "catppuccin-Mocha-Dark-cursors";
+      package = pkgs.catppuccin-cursors.mochaDark;
+      size = 16;
+      name = "catppuccin-mocha-dark-cursors";
     };
     fonts = {
       monospace = {
@@ -123,6 +139,7 @@
     piper
     gimp
 
+    abaddon
     universal-android-debloater
     android-tools
     wineWowPackages.staging
