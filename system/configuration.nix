@@ -28,13 +28,11 @@
       auto-optimise-store = true;
       max-jobs = 4;
 
-      trusted-substituters = [
+      extra-substituters = [
         "https://nix-community.cachix.org"
         "https://cuda-maintainers.cachix.org"
-        "https://cache.nixos.org/"
       ];
-      trusted-public-keys = [
-        "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+      extra-trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
       ];
@@ -56,7 +54,6 @@
     open = false;
     nvidiaSettings = true;
     modesetting.enable = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
   hardware.graphics.enable = true;
 
@@ -76,22 +73,95 @@
         enable = true;
         user = "crabbydisk";
       };
-      sddm.enable = true;
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
     };
-    xserver.enable = true;
 
     keyd = {
       enable = true;
       keyboards.default = {
         settings = {
           global = {
-            default_layout = "colemak";
+            default_layout = "workman";
           };
           main = {
             capslock = "overload(control, esc)";
           };
+          alt = {
+            "1" = "setlayout(colemakdh)";
+            "2" = "setlayout(main)";
+          };
         };
-        extraConfig = "include layouts/colemak";
+        extraConfig = ''
+                    [workman:layout]
+
+                    q = q
+                    w = d
+                    e = r
+                    r = w
+                    t = b
+                    y = j
+                    u = f
+                    i = u
+                    o = p
+                    p = ;
+                    a = a
+                    s = s
+                    d = h
+                    f = t
+                    g = g
+                    h = y
+                    j = n
+                    k = e
+                    l = o
+                    ; = i
+                    ' = '
+                    z = z
+                    x = x
+                    c = m
+                    v = c
+                    b = v
+                    n = k
+                    m = l
+
+                  [colemakdh:layout]
+
+          w = w
+          , = ,
+          s = r
+          a = a
+          c = d
+          g = g
+          q = q
+          e = f
+          ] = ]
+          d = s
+          / = /
+          ; = o
+          ' = '
+          r = p
+          f = t
+          t = b
+          u = l
+          . = .
+          j = n
+          k = e
+          p = ;
+          o = y
+          z = x
+          h = m
+          i = u
+          [ = [
+          v = v
+          l = i
+          m = h
+          n = k
+          x = c
+          b = z
+          y = j
+        '';
       };
     };
 
@@ -128,8 +198,6 @@
     networkmanager.dns = "none";
   };
 
-  security.rtkit.enable = true;
-
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     noto-fonts
@@ -137,11 +205,8 @@
     noto-fonts-extra
   ];
   programs = {
-    hyprland = {
-      enable = true;
-    };
-
     river.enable = true;
+    zsh.enable = true;
 
     steam = {
       enable = true;
@@ -166,6 +231,7 @@
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
       isNormalUser = true;
+      shell = pkgs.zsh;
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel" "networkmanager" "audio" "plugdev"];
     };

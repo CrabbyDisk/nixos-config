@@ -24,7 +24,7 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    cudaSupport = false;
+    cudaSupport = true;
   };
 
   # TODO: Set your username
@@ -42,31 +42,6 @@
       enable = true;
       signing.format = "openpgp";
     };
-    /*
-       kitty = {
-      enable = true;
-      settings = {
-        confirm_os_window_close = 0;
-        shell = "${pkgs.nushell}/bin/nu";
-      };
-    };
-    */
-
-    /*
-       wezterm = {
-      enable = true;
-      extraConfig = ''
-          local wezterm = require 'wezterm'
-        local config = {}
-        config.default_prog = { 'nu' }
-        config.keys = {
-         { key = 'LeftArrow', mods = 'CTRL|SHIFT', action = wezterm.action.ActivateTabRelative(-1) },
-         { key = 'RightArrow', mods = 'CTRL|SHIFT', action = wezterm.action.ActivateTabRelative(1) },
-        }
-        return config
-      '';
-    };
-    */
 
     foot = {
       enable = true;
@@ -122,6 +97,7 @@
     })
     zoom-us
     kdePackages.ark
+    libqalculate
 
     slurp
     grim
@@ -129,15 +105,16 @@
 
     fastfetch
     wl-clipboard
+    openai-whisper
     # kdePackages.kdenlive
 
     libreoffice-fresh
 
     usbutils
     inkscape
-    #blender
+    # blender
     piper
-    gimp
+                # gimp-with-plugins
 
     abaddon
     universal-android-debloater

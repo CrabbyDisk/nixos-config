@@ -3,14 +3,13 @@
     lsp = {
       formatOnSave = true;
       lspkind.enable = false;
-      lightbulb.enable = true;
       lspsaga.enable = false;
       trouble.enable = true;
-      lspSignature.enable = true;
       otter-nvim.enable = true;
       lsplines.enable = true;
     };
 
+    autocomplete.blink-cmp.enable = true;
     languages = {
       enableLSP = true;
       enableFormat = true;
@@ -28,17 +27,6 @@
       markdown = {
         enable = true;
         extensions.render-markdown-nvim.enable = true;
-      };
-      html.enable = true;
-      css.enable = true;
-      ts.enable = true;
-      svelte.enable = true;
-      python.enable = true;
-      bash.enable = true;
-      typst.enable = true;
-      clang = {
-        enable = true;
-        lsp.server = "clangd";
       };
 
       rust = {

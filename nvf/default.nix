@@ -5,11 +5,6 @@
   config.vim = {
     viAlias = true;
     vimAlias = true;
-    debugMode = {
-      enable = false;
-      level = 16;
-      logFile = "/tmp/nvim.log";
-    };
 
     useSystemClipboard = true;
 
@@ -38,11 +33,8 @@
       style = "mocha";
     };
 
-    autopairs.nvim-autopairs.enable = true;
+   autopairs.nvim-autopairs.enable = true;
 
-    autocomplete.nvim-cmp = {
-      enable = true;
-    };
 
     tabline = {
       nvimBufferline = {
