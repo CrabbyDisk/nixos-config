@@ -13,6 +13,7 @@
       highlight-undo.enable = true;
 
       indentBlankline.enable = true;
+      rainbow-delimiters.enable = true;
 
       cursorline = {
         enable = true;
@@ -33,8 +34,7 @@
       style = "mocha";
     };
 
-   autopairs.nvim-autopairs.enable = true;
-
+    autopairs.nvim-autopairs.enable = true;
 
     tabline = {
       nvimBufferline = {
