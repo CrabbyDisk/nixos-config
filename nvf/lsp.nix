@@ -22,7 +22,20 @@
       # that.
       # See: <https://github.com/PMunch/nimlsp/issues/178#issue-2128106096>
 
-      nix.enable = true;
+      nix = {
+        enable = true;
+        lsp = {
+          server = "nixd";
+          options = {
+            nixos = {
+              expr = "(builtins.getFlake \"/home/crabbydisk/nixos\").nixosConfigurations.good-pc.options";
+            };
+            home-manager = {
+              expr = "(builtins.getFlake \"/home/crabbydisk/nixos\").homeConfigurations.crabbydisk.options";
+            };
+          };
+        };
+      };
 
       markdown = {
         enable = true;
