@@ -27,6 +27,11 @@
     #Zen browser
     zen-browser.url = "github:youwen5/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -35,6 +40,7 @@
     home-manager,
     stylix,
     nvf,
+    lix-module,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -91,6 +97,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./system/configuration.nix
+          lix-module.nixosModules.default
         ];
       };
     };

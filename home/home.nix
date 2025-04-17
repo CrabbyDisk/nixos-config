@@ -81,6 +81,11 @@
         package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font";
       };
+
+      sansSerif = {
+        package = pkgs.roboto;
+        name = "Roboto Medium";
+      };
     };
   };
 
@@ -95,6 +100,7 @@
       jdks = [graalvm-ce];
       additionalLibs = [wayland libxkbcommon];
     })
+    osu-lazer-bin
     zoom-us
     kdePackages.ark
     libqalculate
@@ -114,7 +120,7 @@
     inkscape
     # blender
     piper
-    # gimp-with-plugins
+    gimp-with-plugins
 
     abaddon
     universal-android-debloater

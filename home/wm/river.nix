@@ -9,6 +9,11 @@
   wayland.windowManager.river = {
     enable = true;
     settings = {
+      input = {
+        "pointer-1133-49291-Logitech_G502_HERO_Gaming_Mouse" = {
+          accel-profile = "none";
+        };
+      };
       map = {
         normal = {
           "Super T" = "spawn wezterm";

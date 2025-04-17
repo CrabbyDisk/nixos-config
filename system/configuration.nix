@@ -183,9 +183,8 @@
     };
   };
   xdg.portal = {
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
     enable = true;
-    wlr.enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-wlr pkgs.xdg-desktop-portal-gtk];
   };
 
   networking = {
@@ -206,7 +205,6 @@
   ];
   programs = {
     river.enable = true;
-    zsh.enable = true;
 
     steam = {
       enable = true;
@@ -231,7 +229,6 @@
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
       isNormalUser = true;
-      shell = pkgs.zsh;
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
       extraGroups = ["wheel" "networkmanager" "audio" "plugdev"];
     };

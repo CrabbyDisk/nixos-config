@@ -6,7 +6,6 @@
       lspsaga.enable = false;
       trouble.enable = true;
       otter-nvim.enable = true;
-      lsplines.enable = true;
     };
 
     autocomplete.blink-cmp.enable = true;
