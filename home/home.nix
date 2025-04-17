@@ -38,10 +38,6 @@
     bash.enable = true;
 
     home-manager.enable = true;
-    git = {
-      enable = true;
-      signing.format = "openpgp";
-    };
 
     foot = {
       enable = true;

@@ -36,6 +36,13 @@
 
     yt-dlp.enable = true;
 
+    git = {
+      enable = true;
+      signing.format = "openpgp";
+      userEmail = "crabbydisk@proton.me";
+      userName = "crabbydisk";
+    };
+
     gh = {
       enable = true;
       settings = {
