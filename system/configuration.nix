@@ -45,7 +45,6 @@
   boot = {
     plymouth.enable = true;
     loader.systemd-boot.enable = true;
-    kernelPackages = pkgs.linuxPackages_zen;
   };
 
   hardware.nvidia = {
@@ -189,6 +188,7 @@
 
   networking = {
     hostName = "good-pc";
+    hostId = "4e98920d";
     nameservers = [
       "1.1.1.1"
       "1.0.0.1"
