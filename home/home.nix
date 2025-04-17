@@ -39,6 +39,8 @@
 
     home-manager.enable = true;
 
+    floorp.enable = true;
+
     foot = {
       enable = true;
       server.enable = true;
@@ -132,7 +134,6 @@
     nom
     obsidian
     catppuccin-cursors
-    inputs.zen-browser.packages."${system}".default
     outputs.packages."x86_64-linux".nvf
     nvidia_oc
   ];
