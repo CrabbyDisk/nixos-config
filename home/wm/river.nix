@@ -22,6 +22,8 @@
           "Super F" = "zoom";
           #          "None Print" = ''spawn grim -g "$(slurp)" | wl-copy'';
           "Super+Shift M" = "exit";
+          "Super S" = ''send-layout-cmd "test-layout" "backward"'';
+          "Super D" = ''send-layout-cmd "test-layout" "forward"'';
         };
       };
 
