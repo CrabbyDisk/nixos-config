@@ -19,11 +19,11 @@
           "Super T" = "spawn wezterm";
           "Super R" = "spawn fuzzel";
           "Super W" = "close";
-          "Super F" = "zoom";
+          "Super S" = "zoom";
           #          "None Print" = ''spawn grim -g "$(slurp)" | wl-copy'';
           "Super+Shift M" = "exit";
-          "Super D" = ''send-layout-cmd "riverscroll" "backward"'';
-          "Super S" = ''send-layout-cmd "riverscroll" "forward"'';
+          "Super F" = ''send-layout-cmd "riverscroll" "backward"'';
+          "Super D" = ''send-layout-cmd "riverscroll" "forward"'';
         };
       };
 

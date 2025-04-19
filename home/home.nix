@@ -76,8 +76,8 @@
     };
     fonts = {
       monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font";
+        package = pkgs.monaspace;
+        name = "Monaspace Neon";
       };
 
       sansSerif = {
