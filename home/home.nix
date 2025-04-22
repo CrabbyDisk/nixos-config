@@ -128,6 +128,7 @@
 
     (discord-canary.override {
       withVencord = true;
+      withOpenASAR = true;
     })
     wakatime-cli
     qpwgraph

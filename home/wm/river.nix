@@ -24,6 +24,8 @@
           "Super+Shift M" = "exit";
           "Super F" = ''send-layout-cmd "riverscroll" "backward"'';
           "Super D" = ''send-layout-cmd "riverscroll" "forward"'';
+          "Super X" = "swap previous";
+          "Super C" = "swap next";
         };
       };
 
