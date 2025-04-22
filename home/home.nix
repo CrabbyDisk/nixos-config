@@ -118,7 +118,7 @@
     inkscape
     # blender
     piper
-    gimp-with-plugins
+    gimp3-with-plugins
 
     abaddon
     universal-android-debloater
