@@ -34,7 +34,6 @@
   };
 
   programs = {
-    nix-index.enable = true;
     bash.enable = true;
 
     home-manager.enable = true;
