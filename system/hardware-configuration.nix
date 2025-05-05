@@ -19,8 +19,9 @@
   boot.zfs.extraPools = ["zpool"];
 
   fileSystems."/" = {
-    device = "zpool/root";
-    fsType = "zfs";
+    device = "none";
+    fsType = "tmpfs";
+    options = ["size=4G" "mode=755"];
   };
 
   fileSystems."/nix" = {

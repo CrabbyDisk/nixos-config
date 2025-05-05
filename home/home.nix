@@ -18,6 +18,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ./helix.nix
     ./wm
     ./cli
   ];
@@ -57,11 +58,15 @@
   };
 
   i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-chinese-addons
-      kdePackages.fcitx5-qt
-    ];
+    enable = true;
+    type = "fcitx5";
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [
+        fcitx5-chinese-addons
+        kdePackages.fcitx5-qt
+      ];
+    };
   };
 
   stylix = {
@@ -127,14 +132,14 @@
 
     (discord-canary.override {
       withVencord = true;
-      withOpenASAR = true;
+      # withOpenASAR = true;
     })
     wakatime-cli
     qpwgraph
     nom
     obsidian
     catppuccin-cursors
-    outputs.packages."x86_64-linux".nvf
+    # outputs.packages."x86_64-linux".nvf
     nvidia_oc
   ];
 
