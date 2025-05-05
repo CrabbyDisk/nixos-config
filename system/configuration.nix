@@ -77,91 +77,91 @@
       };
     };
 
-    # keyd = {
-    #   enable = true;
-    #   keyboards.default = {
-    #     settings = {
-    #       global = {
-    #         default_layout = "workman";
-    #       };
-    #       main = {
-    #         capslock = "overload(control, esc)";
-    #       };
-    #       alt = {
-    #         "1" = "setlayout(colemakdh)";
-    #         "2" = "setlayout(main)";
-    #       };
-    #     };
-    #     extraConfig = ''
-    #                 [workman:layout]
+    keyd = {
+      enable = true;
+      keyboards.default = {
+        settings = {
+          global = {
+            default_layout = "workman";
+          };
+          main = {
+            capslock = "overload(control, esc)";
+          };
+          # alt = {
+          #   "1" = "setlayout(colemakdh)";
+          #   "2" = "setlayout(main)";
+          # };
+        };
+        #   extraConfig = ''
+        #               [workman:layout]
 
-    #                 q = q
-    #                 w = d
-    #                 e = r
-    #                 r = w
-    #                 t = b
-    #                 y = j
-    #                 u = f
-    #                 i = u
-    #                 o = p
-    #                 p = ;
-    #                 a = a
-    #                 s = s
-    #                 d = h
-    #                 f = t
-    #                 g = g
-    #                 h = y
-    #                 j = n
-    #                 k = e
-    #                 l = o
-    #                 ; = i
-    #                 ' = '
-    #                 z = z
-    #                 x = x
-    #                 c = m
-    #                 v = c
-    #                 b = v
-    #                 n = k
-    #                 m = l
+        #               q = q
+        #               w = d
+        #               e = r
+        #               r = w
+        #               t = b
+        #               y = j
+        #               u = f
+        #               i = u
+        #               o = p
+        #               p = ;
+        #               a = a
+        #               s = s
+        #               d = h
+        #               f = t
+        #               g = g
+        #               h = y
+        #               j = n
+        #               k = e
+        #               l = o
+        #               ; = i
+        #               ' = '
+        #               z = z
+        #               x = x
+        #               c = m
+        #               v = c
+        #               b = v
+        #               n = k
+        #               m = l
 
-    #               [colemakdh:layout]
+        #             [colemakdh:layout]
 
-    #       w = w
-    #       , = ,
-    #       s = r
-    #       a = a
-    #       c = d
-    #       g = g
-    #       q = q
-    #       e = f
-    #       ] = ]
-    #       d = s
-    #       / = /
-    #       ; = o
-    #       ' = '
-    #       r = p
-    #       f = t
-    #       t = b
-    #       u = l
-    #       . = .
-    #       j = n
-    #       k = e
-    #       p = ;
-    #       o = y
-    #       z = x
-    #       h = m
-    #       i = u
-    #       [ = [
-    #       v = v
-    #       l = i
-    #       m = h
-    #       n = k
-    #       x = c
-    #       b = z
-    #       y = j
-    #     '';
-    #   };
-    # };
+        #     w = w
+        #     , = ,
+        #     s = r
+        #     a = a
+        #     c = d
+        #     g = g
+        #     q = q
+        #     e = f
+        #     ] = ]
+        #     d = s
+        #     / = /
+        #     ; = o
+        #     ' = '
+        #     r = p
+        #     f = t
+        #     t = b
+        #     u = l
+        #     . = .
+        #     j = n
+        #     k = e
+        #     p = ;
+        #     o = y
+        #     z = x
+        #     h = m
+        #     i = u
+        #     [ = [
+        #     v = v
+        #     l = i
+        #     m = h
+        #     n = k
+        #     x = c
+        #     b = z
+        #     y = j
+        #   '';
+      };
+    };
 
     udisks2.enable = true;
     ratbagd.enable = true;
